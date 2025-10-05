@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeira Eucaristia - Amanda Rafaela</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f8f4e6 0%, #e8dcc0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff 0%, #f9f7f4 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 3px solid #d4af37;
+        }
+
+        .cross-icon {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            color: #8b4513;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .name {
+            font-size: 3rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8b4513;
+            font-style: italic;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #f0e68c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            font-size: 1.1rem;
+            color: #5d4e37;
+            line-height: 1.6;
+        }
+
+        .date-highlight {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .blessing-section {
+            background: linear-gradient(135deg, #fff 0%, #f9f7f4 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .blessing-text {
+            font-size: 1.3rem;
+            color: #8b4513;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .dove-decoration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .dove {
+            font-size: 24px;
+            color: #d4af37;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #8b4513;
+            font-style: italic;
+        }
+
+        .rsvp-section {
+            background: linear-gradient(135deg, #fff 0%, #f9f7f4 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .rsvp-subtitle {
+            font-size: 1.1rem;
+            color: #8b4513;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .rsvp-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #8b4513;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e8dcc0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .rsvp-button {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .rsvp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .rsvp-success {
+            background: linear-gradient(135deg, #90EE90 0%, #32CD32 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .rsvp-success h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .rsvp-success p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+
+            .rsvp-section {
+                padding: 30px 20px;
+            }
+
+            .rsvp-form {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="cross-icon">✝</div>
+            <h1 class="main-title">Primeira Eucaristia</h1>
+            <h2 class="name">Amanda Rafaela</h2>
+            <p class="subtitle">"Vinde a mim, todas as criancinhas"</p>
+        </div>
+
+        <div class="info-cards">
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <h3 class="card-title">Data da Celebração</h3>
+                <div class="card-content">
+                    <p class="date-highlight">27 de Novembro de 2025</p>
+                    <p>Quinta-feira</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🕘</div>
+                <h3 class="card-title">Horário</h3>
+                <div class="card-content">
+                    <p class="date-highlight">21:30</p>
+                    <p>Festa de Celebração</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🙏</div>
+                <h3 class="card-title">Sacramento</h3>
+                <div class="card-content">
+                    <p>Primeira Comunhão</p>
+                    <p>Momento especial de encontro com Jesus</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📍</div>
+                <h3 class="card-title">Local</h3>
+                <div class="card-content">
+                    <p class="date-highlight">Salão de Festas São José</p>
+                    <p>Rua das Flores, 123 - Centro</p>
+                    <p>São Paulo - SP</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="rsvp-section">
+            <div class="card-icon">💌</div>
+            <h3 class="card-title">Confirme sua Presença</h3>
+            <p class="rsvp-subtitle">Sua presença é muito importante para nós!</p>
+            
+            <form class="rsvp-form" onsubmit="handleRSVP(event)">
+                <div class="form-group">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone/WhatsApp:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">Número de Acompanhantes:</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Selecione</option>
+                        <option value="0">Apenas eu</option>
+                        <option value="1">1 acompanhante</option>
+                        <option value="2">2 acompanhantes</option>
+                        <option value="3">3 acompanhantes</option>
+                        <option value="4">4 ou mais acompanhantes</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem especial (opcional):</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Deixe uma mensagem carinhosa para Amanda Rafaela..."></textarea>
+                </div>
+                
+                <button type="submit" class="rsvp-button">
+                    ✨ Confirmar Presença ✨
+                </button>
+            </form>
+            
+            <div id="rsvp-success" class="rsvp-success" style="display: none;">
+                <div class="success-icon">🎉</div>
+                <h4>Presença Confirmada!</h4>
+                <p>Obrigado por confirmar! Aguardamos você na celebração da Amanda Rafaela.</p>
+                <p style="margin-top: 15px; font-size: 0.95rem;">
+                    📱 Para garantir que recebemos sua confirmação, entre em contato pelo WhatsApp: 
+                    <strong>(11) 99999-9999</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="blessing-section">
+            <div class="dove-decoration">
+                <span class="dove">🕊️</span>
+                <span class="dove" style="animation-delay: 1s;">🕊️</span>
+                <span class="dove" style="animation-delay: 2s;">🕊️</span>
+            </div>
+            
+            <p class="blessing-text">
+                "Deixai vir a mim as criancinhas e não as impeçais, porque delas é o Reino dos Céus."
+            </p>
+            
+            <p class="blessing-text">
+                Que este momento sagrado seja repleto de bênçãos, alegria e paz para Amanda Rafaela e toda sua família.
+            </p>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="card" style="margin: 40px 0;">
+            <div class="card-icon">📞</div>
+            <h3 class="card-title">Contato para Confirmações</h3>
+            <div class="card-content">
+                <p><strong>WhatsApp:</strong> (11) 99999-9999</p>
+                <p><strong>Email:</strong> festa.amanda@email.com</p>
+                <p style="margin-top: 15px; font-style: italic;">
+                    Entre em contato para confirmar sua presença ou tirar dúvidas sobre a festa!
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>✨ Uma data especial para celebrar a fé ✨</p>
+            <p>Com amor e bênçãos</p>
+        </div>
+    </div>
+
+    <script>
+        function handleRSVP(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Simular processamento
+            const button = form.querySelector('.rsvp-button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳ Confirmando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                // Esconder formulário e mostrar mensagem de sucesso
+                form.style.display = 'none';
+                document.getElementById('rsvp-success').style.display = 'block';
+                
+                // Scroll suave para a mensagem de sucesso
+                document.getElementById('rsvp-success').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 1500);
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989ecc8dd7b74ae8',t:'MTc1OTY4NzAyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
